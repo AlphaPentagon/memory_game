@@ -13,7 +13,6 @@ interface CardObj {
 
 const CardGrid = (): JSX.Element => {
   const [randomCards, setRandomCards] = useState<CardObj[]>([]);
-  const [selectedCards, setSelectedCards] = useState<CardObj[]>([]);
 
   // randomly selects a card from the cardsArr, adds it to the randomOrderArr and then removes it from the original array, so that we end up with an array of cards in a random order
 

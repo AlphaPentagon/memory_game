@@ -1,6 +1,7 @@
 interface Card {
   id: number;
-  animal: string;
+  name: string;
+  image: string;
   flipped: boolean;
   found: boolean;
 }
@@ -8,97 +9,113 @@ interface Card {
 const cards: Card[] = [
   {
     id: 1,
-    animal: "frog",
+    name: "book",
+    image: "/images/book.png",
     flipped: false,
     found: false,
   },
   {
     id: 2,
-    animal: "frog",
+    name: "book",
+    image: "/images/book.png",
     flipped: false,
     found: false,
   },
   {
     id: 3,
-    animal: "rabbit",
+    name: "bow",
+    image: "/images/bow_02.png",
     flipped: false,
     found: false,
   },
   {
     id: 4,
-    animal: "rabbit",
+    name: "bow",
+    image: "/images/bow_02.png",
     flipped: false,
     found: false,
   },
   {
     id: 5,
-    animal: "cat",
+    name: "mushroom",
+    image: "/images/green_mushroom.png",
     flipped: false,
     found: false,
   },
   {
     id: 6,
-    animal: "cat",
+    name: "mushroom",
+    image: "/images/green_mushroom.png",
     flipped: false,
     found: false,
   },
   {
     id: 7,
-    animal: "guinea pig",
+    name: "ring",
+    image: "/images/ring_02.png",
     flipped: false,
     found: false,
   },
   {
     id: 8,
-    animal: "guinea pig",
+    name: "ring",
+    image: "/images/ring_02.png",
     flipped: false,
     found: false,
   },
   {
     id: 9,
-    animal: "dog",
+    name: "sword",
+    image: "/images/sword_01.png",
     flipped: false,
     found: false,
   },
   {
     id: 10,
-    animal: "dog",
+    name: "sword",
+    image: "/images/sword_01.png",
     flipped: false,
     found: false,
   },
   {
     id: 11,
-    animal: "mouse",
+    name: "wand",
+    image: "/images/wand_01.png",
     flipped: false,
     found: false,
   },
   {
     id: 12,
-    animal: "mouse",
+    name: "wand",
+    image: "/images/wand_01.png",
     flipped: false,
     found: false,
   },
   {
     id: 13,
-    animal: "fox",
+    name: "chest",
+    image: "/images/wooden_box.png",
     flipped: false,
     found: false,
   },
   {
     id: 14,
-    animal: "fox",
+    name: "chest",
+    image: "/images/wooden_box.png",
     flipped: false,
     found: false,
   },
   {
     id: 15,
-    animal: "chicken",
+    name: "shield",
+    image: "/images/wooden_shield.png",
     flipped: false,
     found: false,
   },
   {
     id: 16,
-    animal: "chicken",
+    name: "shield",
+    image: "/images/wooden_shield.png",
     flipped: false,
     found: false,
   },

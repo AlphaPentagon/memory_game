@@ -20,7 +20,7 @@ const Game = (): JSX.Element => {
   const [selectedCards, setSelectedCards] = useState<CardObj[]>([]);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [gameFinished, setGameFinished] = useState<boolean>(false);
-  let pairsToFind = 1;
+  let pairsToFind = 8;
 
   // randomly selects a card from the cardsArr, adds it to the randomOrderArr and then removes it from the original array, so that we end up with an array of cards in a random order
   const randomiseCards = () => {

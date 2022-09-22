@@ -31,15 +31,17 @@ const Card = ({
 
 // styled components
 const CardContainer = styled.div`
-  border: 2px solid black;
+  border: 1px solid var(--oxford-blue);
   border-radius: 0.5rem;
-  width: min(10vw, 8rem);
-  height: min(15vw, 10rem);
+  width: min(18vw, 7.5rem);
+  height: min(22vw, 9.5rem);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   padding: 0;
+  box-shadow: var(--oxford-blue) 0px 1px 4px;
+  background: var(--off-white);
 `;
 
 const CardImage = styled.img`

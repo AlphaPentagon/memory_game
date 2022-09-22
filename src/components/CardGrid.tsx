@@ -27,9 +27,7 @@ const Wrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
-  /* width: min(45vw, 800px); this appears to be causing an overfill sizing glitch*/
   row-gap: 1rem;
   column-gap: 1rem;
-  margin: 0 auto;
 `;
 export default CardGrid;

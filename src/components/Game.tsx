@@ -45,6 +45,7 @@ const Game = (): JSX.Element => {
         setRandomCards(null);
       }, 1500);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score]);
 
   useEffect(() => {
@@ -75,9 +76,10 @@ const Game = (): JSX.Element => {
         setTimeout(() => {
           setRandomCards(newState);
           setSelectedCards([]);
-        }, 1500);
+        }, 1000);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCards]);
 
   const handleClick = (cardIndex: number, card: CardObj) => {
@@ -147,7 +149,8 @@ const Game = (): JSX.Element => {
         <CardGrid randomCards={randomCards} handleClick={handleClick} />
       ) : (
         <StartContainer>
-          <p>Press Start to play!</p>
+          <IntroText>Find all of the matching pairs of cards!</IntroText>
+
           <StartButton onClick={startGame}>Start</StartButton>
         </StartContainer>
       )}
@@ -157,15 +160,18 @@ const Game = (): JSX.Element => {
 };
 
 const GameContainer = styled.main`
-  width: 60%;
+  width: min(99%, 1000px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
-  border: 1px solid black;
-  padding: 1rem;
+  height: 82vh;
+  /* border: 1px solid var(--oxford-blue); */
+  box-shadow: var(--oxford-blue-light) 0px 1px 6px;
+  border-radius: 0.5rem;
+  padding: 2rem 0 0 0;
+  background-color: var(--mauvelous-light);
 `;
 
 const StartContainer = styled.div`
@@ -175,13 +181,21 @@ const StartContainer = styled.div`
 `;
 
 const StartButton = styled.button`
-  width: 80%;
+  width: 40%;
   border-radius: 1rem;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding-block: 0.5rem;
-
+  background-color: var(--violet-blue-crayola);
+  color: var(--off-white);
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
   cursor: pointer;
+  box-shadow: var(--oxford-blue-light) 0px 1px 3px;
+`;
+
+const IntroText = styled.p`
+  font-size: 2rem;
 `;
 
 export default Game;

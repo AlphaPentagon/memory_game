@@ -23,8 +23,9 @@ const PlayerInfo = ({ turns, score }: PlayerInfoProps) => {
 const Wrapper = styled.section`
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 80%;
   margin-top: auto;
+  font-size: 1.5rem;
 `;
 
 export default PlayerInfo;

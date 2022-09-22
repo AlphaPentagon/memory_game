@@ -20,6 +20,7 @@ const Game = (): JSX.Element => {
   const [selectedCards, setSelectedCards] = useState<CardObj[]>([]);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [gameFinished, setGameFinished] = useState<boolean>(false);
+  let pairsToFind = 1;
 
   // randomly selects a card from the cardsArr, adds it to the randomOrderArr and then removes it from the original array, so that we end up with an array of cards in a random order
   const randomiseCards = () => {
@@ -37,19 +38,12 @@ const Game = (): JSX.Element => {
     return randomOrderArr;
   };
 
-  if (!randomCards) {
-    const newState = randomiseCards();
-    setRandomCards(newState);
-  }
   useEffect(() => {
-    if (score === 8) {
-      setTimeout(() => setGameFinished(true), 1500);
-
-      // setScore(0);
-      // setTurns(0);
-      // setSelectedCards([]);
-      // const newState = randomiseCards();
-      // setRandomCards(newState);
+    if (score === pairsToFind) {
+      setTimeout(() => {
+        setGameFinished(true);
+        setRandomCards(null);
+      }, 1500);
     }
   }, [score]);
 
@@ -128,20 +122,33 @@ const Game = (): JSX.Element => {
     setSelectedCards([...selectedCards, card]);
   };
 
+  const resetGame = () => {
+    setScore(0);
+    setTurns(0);
+    setSelectedCards([]);
+    setGameFinished(false);
+    const newState = randomiseCards();
+    setRandomCards(newState);
+    setIsPlaying(false);
+  };
+
+  const startGame = () => {
+    const newState = randomiseCards();
+    console.log(newState);
+    setRandomCards(newState);
+    setIsPlaying(true);
+  };
+
   return (
     <GameContainer>
       {gameFinished ? (
-        <EndInfo
-          setScore={setScore}
-          setTurns={setTurns}
-          setSelectedCards={setSelectedCards}
-        />
+        <EndInfo resetGame={resetGame} />
       ) : isPlaying ? (
         <CardGrid randomCards={randomCards} handleClick={handleClick} />
       ) : (
         <StartContainer>
           <p>Press Start to play!</p>
-          <StartButton onClick={() => setIsPlaying(true)}>Start</StartButton>
+          <StartButton onClick={startGame}>Start</StartButton>
         </StartContainer>
       )}
       <PlayerInfo turns={turns} score={score} />

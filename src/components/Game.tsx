@@ -1,6 +1,6 @@
 import cards from "../libs/cards";
 import CardGrid from "./CardGrid";
-import PlayerInfo from "./PlayerInfo";
+import PlayerInfo from "./playerInfo";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import EndInfo from "./EndInfo";

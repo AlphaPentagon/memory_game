@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { CardObj } from "./CardGrid";
+import { CardObj } from "./Game";
 
 type CardProps = {
   flippedImage: string;
-
   card: CardObj;
   cardIndex: number;
   handleClick: (cardIndex: number, card: CardObj) => void;
@@ -12,7 +11,6 @@ type CardProps = {
 const Card = ({
   flippedImage,
   handleClick,
-
   card,
   cardIndex,
 }: CardProps): JSX.Element => {

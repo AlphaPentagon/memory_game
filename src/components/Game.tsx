@@ -20,7 +20,13 @@ const Game = (): JSX.Element => {
   const [selectedCards, setSelectedCards] = useState<CardObj[]>([]);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [gameFinished, setGameFinished] = useState<boolean>(false);
-  let pairsToFind = 8;
+  let pairsToFind = 1;
+
+  // audio files
+  const cardClickSFX = new Audio("/audio/card-click.wav");
+  const cardFoundSFX = new Audio("/audio/card-found.wav");
+  const gameWinSFX = new Audio("/audio/game-win.wav");
+  const buttonClickSFX = new Audio("/audio/button-click.wav");
 
   // randomly selects a card from the cardsArr, adds it to the randomOrderArr and then removes it from the original array, so that we end up with an array of cards in a random order
   const randomiseCards = () => {
@@ -41,9 +47,10 @@ const Game = (): JSX.Element => {
   useEffect(() => {
     if (score === pairsToFind) {
       setTimeout(() => {
+        gameWinSFX.play();
         setGameFinished(true);
         setRandomCards(null);
-      }, 1500);
+      }, 3000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score]);
@@ -55,6 +62,7 @@ const Game = (): JSX.Element => {
         console.log("Selected Cards: ", selectedCards);
         let newState: CardObj[] = [];
         if (selectedCards[0].name === selectedCards[1].name) {
+          setTimeout(() => cardFoundSFX.play(), 1000);
           setScore(score + 1);
           newState = randomCards.map((card) => {
             if (card.name === selectedCards[0].name) {
@@ -85,6 +93,7 @@ const Game = (): JSX.Element => {
   const handleClick = (cardIndex: number, card: CardObj) => {
     if (isPlaying) {
       if (selectedCards.length < 2) {
+        cardClickSFX.play();
         setFlippedStatus(cardIndex);
         updateSelectedCards(card);
       } else {
@@ -129,9 +138,8 @@ const Game = (): JSX.Element => {
     setTurns(0);
     setSelectedCards([]);
     setGameFinished(false);
-    const newState = randomiseCards();
-    setRandomCards(newState);
     setIsPlaying(false);
+    startGame();
   };
 
   const startGame = () => {
@@ -139,10 +147,12 @@ const Game = (): JSX.Element => {
     console.log(newState);
     setRandomCards(newState);
     setIsPlaying(true);
+    buttonClickSFX.play();
   };
 
   return (
     <GameContainer>
+      <audio id="cardClick" src="card-click.wav"></audio>
       {gameFinished ? (
         <EndInfo resetGame={resetGame} />
       ) : isPlaying ? (
@@ -150,7 +160,6 @@ const Game = (): JSX.Element => {
       ) : (
         <StartContainer>
           <IntroText>Find all of the matching pairs of cards!</IntroText>
-
           <StartButton onClick={startGame}>Start</StartButton>
         </StartContainer>
       )}

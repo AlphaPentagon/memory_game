@@ -7,6 +7,7 @@ type EndInfoProps = {
 
 const EndInfo = ({ resetGame }: EndInfoProps) => {
   const [isFinished, setIsFinished] = useState(false);
+  const gameEndSFX = new Audio("/audio/game-end.wav");
   return (
     <EndGameContainer>
       {isFinished ? (
@@ -18,7 +19,12 @@ const EndInfo = ({ resetGame }: EndInfoProps) => {
           <p>Would you like to play again?</p>
           <EndGameButtonContainer>
             <EndGameButtonYes onClick={resetGame}>Yes</EndGameButtonYes>
-            <EndGameButtonNo onClick={() => setIsFinished(true)}>
+            <EndGameButtonNo
+              onClick={() => {
+                gameEndSFX.play();
+                setIsFinished(true);
+              }}
+            >
               No
             </EndGameButtonNo>
           </EndGameButtonContainer>

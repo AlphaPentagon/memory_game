@@ -9,17 +9,16 @@
 
 /* 
 
-- Add sound effects for feedback
-	- card select
-	- success pair
-	- failure pair
-	- Win game sound
+- Add sound effects for feedback ✅
+	- card select ✅
+	- success pair ✅
+	- failure pair ✅
+	- Win game sound ✅
 - Sound on/off toggle
 - dark/light mode toggle
 - card animations
 	- beginning
-	- when you click (turning over)
-	- card border colour change when selected
-	- card border colour change when found
+	- when you click (turning over)	
+	- card border colour change when found ✅
 
 */

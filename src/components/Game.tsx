@@ -20,7 +20,7 @@ const Game = (): JSX.Element => {
   const [selectedCards, setSelectedCards] = useState<CardObj[]>([]);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [gameFinished, setGameFinished] = useState<boolean>(false);
-  let pairsToFind = 1;
+  let pairsToFind = 8;
 
   // audio files
   const cardClickSFX = new Audio("/audio/card-click.wav");

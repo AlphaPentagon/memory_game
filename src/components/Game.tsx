@@ -39,7 +39,6 @@ const Game = (): JSX.Element => {
         ...cardsArr.slice(0, randomIndex),
         ...cardsArr.slice(randomIndex + 1),
       ];
-      console.log(randomOrderArr);
     }
     return randomOrderArr;
   };
@@ -59,7 +58,7 @@ const Game = (): JSX.Element => {
     if (selectedCards.length === 2) {
       if (randomCards) {
         setTurns(turns + 1);
-        console.log("Selected Cards: ", selectedCards);
+
         let newState: CardObj[] = [];
         if (selectedCards[0].name === selectedCards[1].name) {
           setTimeout(() => cardFoundSFX.play(), 1000);
@@ -97,7 +96,6 @@ const Game = (): JSX.Element => {
         setFlippedStatus(cardIndex);
         updateSelectedCards(card);
       } else {
-        console.log("2 cards already selected");
       }
     }
   };
@@ -110,7 +108,7 @@ const Game = (): JSX.Element => {
       ) {
         return;
       }
-      console.log(randomCards[cardIndex]);
+
       const newState = randomCards.map((card, index) => {
         if (index === cardIndex) {
           return { ...card, flipped: true };
@@ -123,11 +121,9 @@ const Game = (): JSX.Element => {
 
   const updateSelectedCards = (card: CardObj) => {
     if (card.flipped === true) {
-      console.log("Card already flipped.  Choose a different card");
       return;
     }
     if (card.found === true) {
-      console.log("Card already found.  Choose a different card");
       return;
     }
     setSelectedCards([...selectedCards, card]);
@@ -144,7 +140,6 @@ const Game = (): JSX.Element => {
 
   const startGame = () => {
     const newState = randomiseCards();
-    console.log(newState);
     setRandomCards(newState);
     setIsPlaying(true);
     buttonClickSFX.play();

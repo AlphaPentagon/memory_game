@@ -6,6 +6,7 @@ const Header = () => {
       <img src="/images/sword_01.png" alt="sword" width="50px" height="50px" />
       <Heading>Fantasy Memory Game</Heading>
       <img
+        onClick={() => console.log("Oi! Don't click on me!")}
         src="/images/wooden_shield.png"
         alt="sword"
         width="50px"

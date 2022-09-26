@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <MainHeader>
       <img src="/images/sword_01.png" alt="sword" width="50px" height="50px" />
-      <Heading>Fantasy Memory Card Game</Heading>
+      <Heading>Fantasy Memory Game</Heading>
       <img
         src="/images/wooden_shield.png"
         alt="sword"

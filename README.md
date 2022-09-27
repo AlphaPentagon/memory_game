@@ -1,46 +1,25 @@
-# Getting Started with Create React App
+# Fantasy Memory Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+As a fun side project, I created a memory game using React, Typescript and Styled components.
 
-## Available Scripts
+I wanted to challenge myself to design and implement the logic myself without any tutorials and I'm really happy with the way it turned out. It was also a great way to continue learning, as I had only spent a day with using Typescript previously and never used styled components before. This proved challenging at times, but I found the official docs for both really helpful and concise.
 
-In the project directory, you can run:
+## Reflections
 
-### `npm start`
+- Writing games/game logic in React is different to doing so in vanilla JS - I found that I had to useEffects to almost act as event listeners instead of conditional statements in a main game loop e.g. a useEffect is fired when 2 cards have been selected that fires a function that checks if the cards are a match or not. I tried to implement this without a useEffect (as the offical React docs recommend that useEffects aren't used in this way) but unfortunately I could not find a viable alternative.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- The introduction of types via typescript helps with squashing bugs and making the code predictable, but really slowed down my development. Part of this is due to me not using Typescript much before, so there was a steep learning curve, but I found myself spending a lot more time adding type/interface definitions, and debugging my code to make typescript happy then I would have liked. However, I can see that the benefits are really...beneficial! As with anything, I think it is a trade off - and that actually sometime like a game (where you really don't want bugs) suits it's use.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Styled components are neat and fun to use! At first I thought having my styling within my JS file would be messy, but actually I found it very readable and neat. Being able to add dynamic styling based on props is also super useful. I will definitely be exploring this more in the future.
 
-### `npm test`
+## Next Steps
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If I were to continue this project further, my next steps would be:
 
-### `npm run build`
+- to add animations to the cards to further increase the user engagement,
+- add a timer to the game as an extra challenge
+- make the app fully responsive
+- add some unit tests to the individual components and functions using Jest
+- migrate the audio to using the Web Audio API, to give me more control in how the sounds are loaded and played back.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+A big stretch goal would be to implement multiplayer via something like socket.io and also create a backend so I could host leaderboards.

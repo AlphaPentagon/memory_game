@@ -1,5 +1,7 @@
 # Fantasy Memory Game
 
+Play the game [here](https://fantasy-memory-game.netlify.app/)
+
 As a fun side project, I created a memory game using React, Typescript and Styled components.
 
 I wanted to challenge myself to design and implement the logic myself without any tutorials and I'm really happy with the way it turned out. It was also a great way to continue learning, as I had only spent a day with using Typescript previously and never used styled components before. This proved challenging at times, but I found the official docs for both really helpful and concise.
